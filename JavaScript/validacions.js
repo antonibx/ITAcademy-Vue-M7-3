@@ -20,7 +20,7 @@ const expresiones = {
 };
 
 // Inicialitzem tots els camps amb expressions regulars a incorrectes
-const campos = {Usuari: false, Nom: false, Pass: false, Mail: false};
+const campos = {Usuari: false, Nom: false, Pass: false, Pass2: false, Mail: false};
 
 // EventListeners pels Inputs
 document.querySelectorAll('#formulari input').forEach((input) => {
@@ -39,7 +39,7 @@ function Formulari (e) {
 	if (jaExisteix(usuari, mail)) { 
 		//Si l'usuari ja és a la base de dades (per user o mail) mostrem un avís
 		e.target.children[0].children[7].classList.add('formulariMensaje-actiu'); //formulariJaExisteix
-	} else if(campos.Usuari && campos.Nom && campos.Pass && campos.Mail && validarProvincia(provincia) && condicions.checked){
+	} else if(campos.Usuari && campos.Nom && campos.Pass && campos.Pass2 && campos.Mail && validarProvincia(provincia) && condicions.checked){
 		//Guardem a la base de dades
 		let nom = e.target[1].value;
 		let pass = e.target[2].value;
@@ -89,55 +89,31 @@ function validarFormulari(e) {
 }
 function validarCampo (expresion, input, campo) {
 	if(expresion.test(input.value)){
-		input.parentElement.parentElement.classList.remove('formulariGrup-incorrecte');
-		input.parentElement.parentElement.classList.add('formulariGrup-correcte');
-		input.parentElement.children[1].classList.add('fa-check-circle');
-		input.parentElement.children[1].classList.remove('fa-times-circle');
-		input.parentElement.parentElement.children[2].classList.remove('formulariInput-error-actiu');
+		correcte(input.parentElement);
 		campos[campo] = true;
 	} else {
-		input.parentElement.parentElement.classList.add('formulariGrup-incorrecte');
-		input.parentElement.parentElement.classList.remove('formulariGrup-correcte');
-		input.parentElement.children[1].classList.add('fa-times-circle');
-		input.parentElement.children[1].classList.remove('fa-check-circle');
-		input.parentElement.parentElement.children[2].classList.add('formulariInput-error-actiu');
+		incorrecte(input.parentElement);
 		campos[campo] = false;
 	}
 }
 function validarProvincia(input) {
 	let provinciaOK;
 	if(input.value !== "" && input.value !== undefined & input.value !== null) {
-		input.parentElement.parentElement.classList.remove('formulariGrup-incorrecte');
-		input.parentElement.parentElement.classList.add('formulariGrup-correcte');
-		input.parentElement.children[1].classList.add('fa-check-circle');
-		input.parentElement.children[1].classList.remove('fa-times-circle');
-		input.parentElement.parentElement.children[2].classList.remove('formulariInput-error-actiu');
+		correcte(input.parentElement);
 		provinciaOK = true;
 	} else {
-		input.parentElement.parentElement.classList.add('formulariGrup-incorrecte');
-		input.parentElement.parentElement.classList.remove('formulariGrup-correcte');
-		input.parentElement.children[1].classList.add('fa-times-circle');
-		input.parentElement.children[1].classList.remove('fa-check-circle');
-		input.parentElement.parentElement.children[2].classList.add('formulariInput-error-actiu');
+		incorrecte(input.parentElement);
 		provinciaOK = false;
 	}
 	return provinciaOK;
 }
 function validarPassword2(inputPassword1, inputPassword2) {
-	if(inputPassword1.value !== inputPassword2.value){
-		inputPassword2.parentElement.parentElement.classList.add("formulariGrup-incorrecte");
-		inputPassword2.parentElement.parentElement.classList.remove("formulariGrup-correcte");
-		inputPassword2.parentElement.children[1].classList.add("fa-times-circle");
-		inputPassword2.parentElement.children[1].classList.remove("fa-check-circle");
-		inputPassword2.parentElement.parentElement.children[2].classList.add("formulariInput-error-actiu");
-		campos.password = false;
+	if(inputPassword1.value == inputPassword2.value){
+		correcte(inputPassword2.parentElement);
+		campos.Pass2 = true;
 	} else {
-		inputPassword2.parentElement.parentElement.classList.remove("formulariGrup-incorrecte");
-		inputPassword2.parentElement.parentElement.classList.add("formulariGrup-correcte");
-		inputPassword2.parentElement.children[1].classList.remove("fa-times-circle");
-		inputPassword2.parentElement.children[1].classList.add("fa-check-circle");
-		inputPassword2.parentElement.parentElement.children[2].classList.remove("formulariInput-error-actiu");
-		campos.password = true;
+		incorrecte(inputPassword2.parentElement);
+		campos.Pass2 = false;
 	}
 }
 function jaExisteix(usuari, mail) {
@@ -148,6 +124,20 @@ function jaExisteix(usuari, mail) {
 			}
 		}
     return existeix;
+}
+function correcte(input) {
+	input.parentElement.classList.remove('formulariGrup-incorrecte');
+	input.parentElement.classList.add('formulariGrup-correcte');
+	input.children[1].classList.add('fa-check-circle');
+	input.children[1].classList.remove('fa-times-circle');
+	input.parentElement.children[2].classList.remove('formulariInput-error-actiu');
+}
+function incorrecte(input) {
+	input.parentElement.classList.add('formulariGrup-incorrecte');
+	input.parentElement.classList.remove('formulariGrup-correcte');
+	input.children[1].classList.add('fa-times-circle');
+	input.children[1].classList.remove('fa-check-circle');
+	input.parentElement.children[2].classList.add('formulariInput-error-actiu');
 }
 
 // ---------------------------------------------------------------------------------------
@@ -160,7 +150,7 @@ function Login(e) {
 		e.target.reset();
 		e.target.children[0].children[2].classList.remove('formulariMensaje-actiu');
 		//Mostrem la finestra modal
-		$('#registre-exitos').modal('show');
+		$('#login-exitos').modal('show');
 		$('#login').collapse('hide');
     } else {
 		e.target.children[0].children[2].classList.add('formulariMensaje-actiu');
