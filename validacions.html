@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Style/bootstrap-4.6.0/css/bootstrap.css">
     <link rel="stylesheet" href="Style/validacions.css">
     <title>Validacions</title>
@@ -23,91 +24,96 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="" class="formulari" id="formulari">
+        <form action="" class="formulari" onsubmit="Formulari(event)" id="formulari">
             <div class="modal-body">
                 <!-- Usuari -->
-                <div class="formulari__grup" id="grup__usuari">
-                    <label for="usuario" class="formulari__label">Usuari</label>
-                    <div class="formulari__grup-input">
-                        <input type="text" class="formulari__input" name="usuari" id="usuari" placeholder="vuejs21">
-                        <i class="formulari__validacio-estat fas fa-times-circle"></i>
+                <div class="formulariGrup" id="grupUsuari">
+                    <label for="usuario" class="formulariLabel">Usuari</label>
+                    <div class="formulariGrup-input">
+                        <input type="text" class="formulariInput" name="usuari" id="usuari" placeholder="vuejs21">
+                        <i class="formulariValidacio-estat fas fa-times-circle"></i>
                     </div>
-                    <p class="formulari__input-error">L'usuari ha de tenir entre 4 i 16 caràcters, i només pot contenir números, lletres i barres baixes.</p>
+                    <p class="formulariInput-error">L'usuari ha de tenir entre 4 i 16 caràcters, i només pot contenir números, lletres i barres baixes.</p>
                 </div>
 
                 <!-- Nom -->
-                <div class="formulari__grup" id="grup__nom">
-                    <label for="nombre" class="formulari__label">Nom</label>
-                    <div class="formulari__grup-input">
-                        <input type="text" class="formulari__input" name="nom" id="nom" placeholder="IT Academy">
-                        <i class="formulari__validacio-estat fas fa-times-circle"></i>
+                <div class="formulariGrup" id="grupNom">
+                    <label for="nombre" class="formulariLabel">Nom</label>
+                    <div class="formulariGrup-input">
+                        <input type="text" class="formulariInput" name="nom" id="nom" placeholder="IT Academy">
+                        <i class="formulariValidacio-estat fas fa-times-circle"></i>
                     </div>
-                    <p class="formulari__input-error">El nom d'usuari ha de tenir entre 4 i 16 caràcters, i només pot contenir números, lletres i barres baixes.</p>
+                    <p class="formulariInput-error">El nom d'usuari ha de tenir entre 1 i 16 caràcters, i només pot contenir números, lletres i barres baixes.</p>
                 </div>
     
                 <!-- Contrassenya -->
-                <div class="formulari__grup" id="grup__pass">
-                    <label for="password" class="formulari__label">Contrassenya</label>
-                    <div class="formulari__grup-input">
-                        <input type="password" class="formulari__input" name="pass" id="pass">
-                        <i class="formulari__validacio-estat fas fa-times-circle"></i>
+                <div class="formulariGrup" id="grupPass">
+                    <label for="password" class="formulariLabel">Contrassenya</label>
+                    <div class="formulariGrup-input">
+                        <input type="password" class="formulariInput" name="pass" id="pass">
+                        <i class="formulariValidacio-estat fas fa-times-circle"></i>
                     </div>
-                    <p class="formulari__input-error">La contrassenya ha de tenir més de 8 caràcters i incloure una majúscula, una minúscula i un número.</p>
+                    <p class="formulariInput-error">La contrassenya ha de tenir més de 8 caràcters i incloure una majúscula, una minúscula i un número.</p>
                 </div>
     
                 <!-- Contrassenya 2 -->
-                <div class="formulari__grup" id="grup__pass2">
-                    <label for="password2" class="formulari__label">Repeteix la contrasseya</label>
-                    <div class="formulari__grup-input">
-                        <input type="password" class="formulari__input" name="pass2" id="pass2">
-                        <i class="formulari__validacio-estat fas fa-times-circle"></i>
+                <div class="formulariGrup" id="grupPass2">
+                    <label for="password2" class="formulariLabel">Repeteix la contrasseya</label>
+                    <div class="formulariGrup-input">
+                        <input type="password" class="formulariInput" name="pass2" id="pass2">
+                        <i class="formulariValidacio-estat fas fa-times-circle"></i>
                     </div>
-                    <p class="formulari__input-error">Les dues contrassenyes han de coincidir.</p>
+                    <p class="formulariInput-error">Les dues contrassenyes han de coincidir.</p>
                 </div>
     
                 <!-- Correu electrònic -->
-                <div class="formulari__grup" id="grup__mail">
-                    <label for="correo" class="formulari__label">Correu Electrònic</label>
-                    <div class="formulari__grup-input">
-                        <input type="email" class="formulari__input" name="mail" id="mail" placeholder="vue@itacademy.cat">
-                        <i class="formulari__validacio-estat fas fa-times-circle"></i>
+                <div class="formulariGrup" id="grupMail">
+                    <label for="correo" class="formulariLabel">Correu Electrònic</label>
+                    <div class="formulariGrup-input">
+                        <input type="email" class="formulariInput" name="mail" id="mail" placeholder="vue@itacademy.cat">
+                        <i class="formulariValidacio-estat fas fa-times-circle"></i>
                     </div>
-                    <p class="formulari__input-error">El correu només pot contenir lletres, números, punts, guions i barres baixes.</p>
+                    <p class="formulariInput-error">El correu només pot contenir lletres, números, punts, guions i barres baixes.</p>
                 </div>
     
                 <!-- Provincia -->
-                <div class="formulari__grup" id="grup__provincia">
-                    <label for="provincia" class="formulari__label">Provincia</label>
-                    <div class="formulari__grup-input">
-                        <select class="formulari__input" name="provincia" id="provincia">
+                <div class="formulariGrup" id="grupProvincia">
+                    <label for="provincia" class="formulariLabel">Provincia</label>
+                    <div class="formulariGrup-input">
+                        <select class="formulariInput" name="provincia" id="provincia">
                             <option value="">Escull una província</option>
                             <option value="Barcelona">Barcelona</option>
                             <option value="Girona">Girona</option>
                             <option value="Lleida">Lleida</option>
                             <option value="Tarragona">Tarragona</option>
                         </select>
-                        <i class="formulari__validacio-estat fas fa-times-circle"></i>
+                        <i class="formulariValidacio-estat fas fa-times-circle"></i>
                     </div>
-                    <p class="formulari__input-error">Has d'escollir una provincia.</p>
+                    <p class="formulariInput-error">Has d'escollir una provincia.</p>
                 </div>
     
                 <!-- Termes i Condicions -->
-                <div class="formulari__grup" id="grup__condicions">
-                    <label class="formulari__label">
-                        <input class="formulari__checkbox" type="checkbox" name="condicions" id="condicions">
+                <div class="formulariGrup" id="grupCondicions">
+                    <label class="formulariLabel">
+                        <input class="formulariCheckbox" type="checkbox" name="condicions" id="condicions">
                         Accepto els termes i condiciones
                     </label>
                 </div>
 
-                <!-- Error -->
-                <div class="formulari__mensaje" id="formulari__mensaje">
+                <!-- Error usuari existent -->
+                <div class="formulariMensaje" id="formulariJaExisteix">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> L'usuari o correu ja estan registrats. </p>
+                </div>
+
+                <!-- Error al omplir formulari -->
+                <div class="formulariMensaje" id="formulariMensaje">
                     <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Si us plau, omple el formulari correctament. </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="formulari__grup formulari__grup-btn-enviar">
-                    <button type="submit" class="formulari__btn btn btn-primary">Enviar</button>
-                    <p class="formulari__mensaje-exito" id="formulari__mensaje-exito">Formulari enviat correctament!</p>
+                <div class="formulariGrup formulariGrup-btn-enviar">
+                    <button type="submit" class="formulariBtn btn btn-primary">Enviar</button>
+                    <p class="formulariMensaje-exito" id="formulariMensaje-exito">Formulari enviat correctament!</p>
                 </div>
             </div>
         </form>
@@ -120,38 +126,38 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="" class="formulari" id="formularilogin">
+        <form action="" onsubmit="Login(event)" class="formulari" id="formularilogin">
             <div class="modal-body">
-
                 <!-- Usuari -->
-                <div class="formulari__grup" id="grup__loginuser">
-                    <label for="loginuser" class="formulari__label">Usuari</label>
-                    <div class="formulari__grup-input">
-                        <input type="text" class="formulari__input" name="loginuser" id="loginuser" placeholder="user">
-                        <i class="formulari__validacio-estat fas fa-times-circle"></i>
+                <div class="formulariGrup" id="grupLoginuser">
+                    <label for="loginuser" class="formulariLabel">Usuari</label>
+                    <div class="formulariGrup-input">
+                        <input type="text" class="formulariInput" name="loginuser" id="loginuser" placeholder="user">
+                        <i class="formulariValidacio-estat fas fa-times-circle"></i>
                     </div>
-                    <p class="formulari__input-error">L'usuari no existeix</p>
+                    <p class="formulariInput-error">L'usuari no existeix</p>
                 </div>
 
                 <!-- Contrassenya -->
-                <div class="formulari__grup" id="grup__loginpass">
-                    <label for="loginpass" class="formulari__label">Contrassenya</label>
-                    <div class="formulari__grup-input">
-                        <input type="password" class="formulari__input" name="loginpass" id="loginpass" placeholder="pass">
-                        <i class="formulari__validacio-estat fas fa-times-circle"></i>
+                <div class="formulariGrup" id="grupLoginpass">
+                    <label for="loginpass" class="formulariLabel">Contrassenya</label>
+                    <div class="formulariGrup-input">
+                        <input type="password" class="formulariInput" name="loginpass" id="loginpass" placeholder="pass">
+                        <i class="formulariValidacio-estat fas fa-times-circle"></i>
                     </div>
-                    <p class="formulari__input-error">La contrassenya no és correca.</p>
+                    <p class="formulariInput-error">La contrassenya no és correca.</p>
                 </div>
 
                 <!-- Error -->
-                <div class="formulari__mensaje" id="login__mensaje">
+                <div class="formulariMensaje" id="loginMensaje">
                     <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> usuari o contrassenya no són correctes. </p>
                 </div>
             </div>
+            <div class="modal-footer">
+                <!-- Botó -->
+                <button type="submit" class="btn btn-warning">Entra</button>
+            </div>
         </form>
-        <div class="modal-footer">
-            <button type="button" onclick="Login()" class="btn btn-warning">Entra</button>
-        </div>
     </div>
     <!-- Dades -->
     <div class="collapse" id="dades" style="background-color:rgb(203, 251, 203);">

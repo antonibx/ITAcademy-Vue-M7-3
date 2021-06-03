@@ -1,15 +1,15 @@
-.formulari__label {
+.formulariLabel {
 	display: block;
 	font-weight: 700;
 	padding: 10px;
 	cursor: pointer;
 }
 
-.formulari__grup-input {
+.formulariGrup-input {
 	position: relative;
 }
 
-.formulari__input {
+.formulariInput {
 	width: 100%;
 	background: #fff;
 	border: 3px solid transparent;
@@ -20,23 +20,23 @@
 	transition: .3s ease all;
 }
 
-.formulari__input:focus {
+.formulariInput:focus {
 	border: 3px solid #0075FF;
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }
 
-.formulari__input-error {
+.formulariInput-error {
 	font-size: 12px;
 	margin-bottom: 0;
 	display: none;
 }
 
-.formulari__input-error-actiu {
+.formulariInput-error-actiu {
 	display: block;
 }
 
-.formulari__validacio-estat {
+.formulariValidacio-estat {
 	position: absolute;
 	right: 10px;
 	bottom: 15px;
@@ -45,11 +45,11 @@
 	opacity: 0;
 }
 
-.formulari__checkbox {
+.formulariCheckbox {
 	margin-right: 10px;
 }
 
-.formulari__mensaje {
+.formulariMensaje {
 	height: 45px;
 	line-height: 45px;
 	background: #F66060;
@@ -58,46 +58,46 @@
 	display: none;
 }
 
-.formulari__mensaje-actiu {
+.formulariMensaje-actiu {
 	display: block;
 }
 
-.formulari__mensaje p {
+.formulariMensaje p {
 	margin: 0;
 }
 
-.formulari__grup-btn-enviar {
+.formulariGrup-btn-enviar {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.formulari__mensaje-exito {
+.formulariMensaje-exito {
 	font-size: 14px;
 	color: #119200;
 	display: none;
 }
 
-.formulari__mensaje-exito-actiu {
+.formulariMensaje-exito-actiu {
 	display: block;
 }
 
 /* ----- -----  Estilos para Validacio ----- ----- */
-.formulari__grup-correcte .formulari__validacio-estado {
+.formulariGrup-correcte .formulariValidacio-estado {
 	color: #1ed12d;
 	opacity: 1;
 }
 
-.formulari__grup-incorrecte .formulari__label {
+.formulariGrup-incorrecte .formulariLabel {
 	color: #bb2929;
 }
 
-.formulari__grup-incorrecte .formulari__validacio-estado {
+.formulariGrup-incorrecte .formulariValidacio-estado {
 	color: #bb2929;
 	opacity: 1;
 }
 
-.formulari__grup-incorrecte .formulari__input {
+.formulariGrup-incorrecte .formulariInput {
 	border: 3px solid #bb2929;
 }
 
@@ -108,13 +108,13 @@
 		grid-template-columns: 1fr;
 	}
 
-	.formulari__grup-condicions, 
-	.formulari__mensaje,
-	.formulari__grup-btn-enviar {
+	.formulariGrup-condicions, 
+	.formulariMensaje,
+	.formulariGrup-btn-enviar {
 		grid-column: 1;
 	}
 
-	.formulari__btn {
+	.formulariBtn {
 		width: 100%;
 	}
 }
